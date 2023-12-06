@@ -6,13 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="web3V" />
+        <module name="webV1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="web3V" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="web3V" options="-parameters" />
+      <module name="webV1" options="-parameters" />
     </option>
   </component>
 </project>
