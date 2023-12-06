@@ -5,9 +5,12 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+@Data
 @Entity
 @Table(name = "users")
 public class ApplicationUser implements UserDetails {
@@ -15,14 +18,17 @@ public class ApplicationUser implements UserDetails {
     // Primary key for the user entity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private Integer userId;
 
     // Unique username for the user
-    @Column(unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
+    @Column(name = "email", nullable = false, unique = true, length = 320)
+    private String email;
 
     // User password
+    @Column(name = "password", nullable = false, length = 1000)
     private String password;
 
     // Many-to-Many relationship with roles
@@ -41,11 +47,12 @@ public class ApplicationUser implements UserDetails {
     }
 
     // Parameterized constructor for creating a user with specified attributes
-    public ApplicationUser(Integer userId, String username, String password, Set<Role> authorities) {
+    public ApplicationUser(Integer userId, String username, String password,String email, Set<Role> authorities) {
         super();
         this.userId = userId;
         this.username = username;
         this.password = password;
+        this.email= email;
         this.authorities = authorities;
     }
 

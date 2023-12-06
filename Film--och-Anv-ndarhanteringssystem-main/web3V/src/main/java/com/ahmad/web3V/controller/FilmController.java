@@ -1,8 +1,6 @@
 package com.ahmad.web3V.controller;
 
-import com.ahmad.web3V.model.Film;
 import com.ahmad.web3V.service.AuthenticationService;
-import com.ahmad.web3V.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
