@@ -5,10 +5,16 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class ApplicationUser implements UserDetails {
@@ -38,23 +44,35 @@ public class ApplicationUser implements UserDetails {
     )
     private Set<Role> authorities;
 
+    public ApplicationUser(int i, String admin, String password, Set<Role> roles) {
+
+    }
+
+    public ApplicationUser(String customerName, String customerEmail) {
+
+    }
+
+
     // Default constructor to initialize authorities as an empty set
-    public ApplicationUser() {
-        super();
-        authorities = new HashSet<>();
-    }
+//    public ApplicationUser() {
+//        super();
+//        authorities = new HashSet<>();
+//    }
 
-    // Parameterized constructor for creating a user with specified attributes
-    public ApplicationUser(Integer userId, String username, String password,String email, Set<Role> authorities) {
-        super();
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.email= email;
-        this.authorities = authorities;
-    }
-
-    // Getter and Setter methods
+//    // Parameterized constructor for creating a user with specified attributes
+//    public ApplicationUser(Integer userId, String username, String password,String email, Set<Role> authorities) {
+//        super();
+//        this.userId = userId;
+//        this.username = username;
+//        this.password = password;
+//        this.email= email;
+//        this.authorities = authorities;
+//    }
+//
+//    public ApplicationUser(String username) {
+//        this.username = username;
+//    }
+// Getter and Setter methods
 
     public Integer getUserId() {
         return this.userId;

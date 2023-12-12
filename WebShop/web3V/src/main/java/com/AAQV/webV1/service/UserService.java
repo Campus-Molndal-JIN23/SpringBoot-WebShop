@@ -53,4 +53,14 @@ public class UserService implements UserDetailsService {
     public List<ApplicationUser> findAll() {
         return userRepository.findAll();
     }
+
+    public Integer
+    isCustomerPresent(ApplicationUser customer){
+        Optional<ApplicationUser> customer1 = userRepository.findByUsername(customer.getUsername());
+        return customer1!=null ? customer1.get().getUserId(): null ;
+    }
+
+    public ApplicationUser saveUser(ApplicationUser user) {
+        return userRepository.save(user);
+    }
 }

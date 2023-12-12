@@ -1,4 +1,5 @@
 package com.AAQV.webV1.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,5 +44,7 @@ public class Product {
      */
     @OneToOne(mappedBy = "product", cascade = CascadeType.REMOVE, optional = false, orphanRemoval = true)
     private Inventory inventory;
+
+    private int availableQuantity;
 
 }

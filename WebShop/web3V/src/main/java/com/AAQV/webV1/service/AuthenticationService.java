@@ -54,7 +54,7 @@ public class AuthenticationService {
         authorities.add(userRole);
 
         // Save the new user with encoded password and authorities
-        return userRepository.save(new ApplicationUser(0, username, encodedPassword, authorities));
+        return userRepository.save(new ApplicationUser(0, username, encodedPassword,authorities));
     }
 
     // Method to handle user login

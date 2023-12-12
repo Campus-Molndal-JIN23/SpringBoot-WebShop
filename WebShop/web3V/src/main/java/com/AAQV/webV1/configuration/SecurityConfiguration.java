@@ -63,6 +63,7 @@ public class SecurityConfiguration {
                     auth.requestMatchers("/film/hämta-films").permitAll();
                     auth.requestMatchers("/film/hämta{id}").permitAll();
                     auth.requestMatchers("/webshop/artiklar/**").permitAll();
+                    auth.requestMatchers("/cart/**").permitAll();
 
                     // Require ADMIN role for paths under /admin/**
                     auth.requestMatchers("/admin/**").hasRole("ADMIN");
@@ -79,9 +80,7 @@ public class SecurityConfiguration {
                 });
 
         // Configure OAuth2 resource server with JWT authentication
-        http.oauth2ResourceServer()
-                .jwt()
-                .jwtAuthenticationConverter(jwtAuthenticationConverter());
+        http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter());
 
         // Configure session management to be STATELESS
         http.sessionManagement(

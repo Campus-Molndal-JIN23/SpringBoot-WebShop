@@ -41,8 +41,8 @@ public class ProductService {
 
         // Update the existing clothing item
         existingProduct.setName(updatedProduct.getName());
-        existingProduct.setCost(updatedProduct.getCost());
-        existingProduct.setDescription(updatedProduct.getDescription());
+        existingProduct.setPrice(updatedProduct.getPrice());
+        existingProduct.setShortDescription(updatedProduct.getShortDescription());
 
 
         return productRepository.save(existingProduct);
